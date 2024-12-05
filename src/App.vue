@@ -22,6 +22,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -30,5 +38,6 @@ export default {
 .app {
   width: 100%;
   height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 </style>
