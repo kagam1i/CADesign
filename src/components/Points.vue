@@ -1,34 +1,23 @@
 <template>
   <div class="points">
     <div class="points__wrapper">
-      <div class="points__item" v-for="(item, index) in items" :key="index">
+      <div class="points__item" v-for="(item, index) in points" :key="index">
         <img class="icon" :src="item.icon" :alt="item.title" />
         <p>{{ item.title }}</p>
+        <p class="description">{{ item?.description }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import point1 from '../assets/image/point1.svg'
-import point2 from '../assets/image/point2.svg'
-import point3 from '../assets/image/point3.svg'
-import point4 from '../assets/image/point4.svg'
-import point5 from '../assets/image/point5.svg'
-import point6 from '../assets/image/point6.svg'
+import {points} from '../Data/data.js'
 
 
 export default {
   data() {
     return {
-      items: [
-        { title: "Развитие", icon: point1},
-        { title: "Обучение", icon: point2},
-        { title: "Ответственность", icon: point3},
-        { title: "Динамика", icon: point4},
-        { title: "Комфорт", icon: point5},
-        { title: "Надежность", icon: point6},
-      ],
+        points,
     };
   },
 };
@@ -59,20 +48,19 @@ export default {
 }
 
 .points__item {
-  display: flex;               /* Используем Flexbox */
-  flex-direction: column;      /* Размещаем элементы в колонку */
-  justify-content: center;     /* Центрируем по вертикали */
-  align-items: center;         /* Центрируем по горизонтали */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   height: 377px;
   width: 398.27px;
   background-color: #FFFFFF;
   border: 1px solid #EDEDED;
-
 }
 
 p {
-  font-family: 'Roboto', sans-serif;
+  line-height: 24.8px;
   font-size: 20px;
   font-weight: 400;
 }
@@ -82,5 +70,23 @@ p {
   width: 66px;
   margin-bottom: 44px;
 }
+
+.description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #646464;
+  margin-top: 23px;
+  max-width: 297px;
+}
+
+.points__wrapper > *:nth-child(4) {
+  z-index: 2;
+  transform: translate(1px, -1px);
+  box-shadow: 0px 4px 52px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+
 
 </style>

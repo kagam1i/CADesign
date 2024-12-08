@@ -4,7 +4,8 @@
       <h2>Отдел подбора персонала:</h2>
       <p class="phone_number">8 800 700 8000</p>
       <a href="/"> oco_rabota@mail.ru</a>
-      <my-button class="custom_component">Стать частью команды</my-button>
+      <my-button class="custom_component" @click="openModal">Стать частью команды</my-button>
+<!--      <my-dialog v-if="isModalOpen" :isOpen="isModalOpen" @close="closeModal"/>-->
       <div class="footer__contacts">
         <button class="btn"><img class="vk" :src="vk" alt=""></button>
         <button class="btn"><img class="ok" :src="ok" alt=""></button>
@@ -13,7 +14,7 @@
       </div>
     </div>
     <div class="footer__information">
-      <p>© 1998–2019,«Компания», 53002, Иваново, Лежневская 34 корпус 1</p>
+      <span>© 1998–2019,«Компания», 53002, Иваново, Лежневская 34 корпус 1</span>
       <a href="#">Политика обработки персональных данных</a>
     </div>
   </div>
@@ -25,18 +26,30 @@ import ok from '../assets/image/ok.svg'
 import facebook from '../assets/image/facebook.svg'
 import instagram from '../assets/image/instagram.svg'
 import MyButton from "../ UI/MyButton.vue";
+import MyDialog from "../ UI/MyDialog.vue";
 
 
 export default {
-  components: {MyButton},
+  components: {MyDialog, MyButton},
   data () {
     return {
       vk,
       ok,
       facebook,
       instagram,
-    }
-  }
+      // isModalOpen: false,
+    };
+  },
+  // methods: {
+  //   openModal() {
+  //     console.log('openModal');
+  //     this.isModalOpen = true;
+  //   },
+  //   closeModal() {
+  //     console.log('closeModal');
+  //     this.isModalOpen = false;
+  //   },
+  // },
 };
 
 </script>
@@ -52,53 +65,52 @@ export default {
 
 .footer {
   font-family: 'Roboto', sans-serif;
-  //display: flex;
-  //justify-content: center;
-  //align-items: center;
   width: 100%;
-  margin-top: 72px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #F7F7F7;
+  margin-top: 72px
 }
 
 .footer__wrapper {
   display: flex;
+  margin: 72px 0;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background: #F7F7F7;
 }
 
-
 h2 {
-  margin: 72px 0 0 0;
+  line-height: 22.32px;
   font-size: 18px;
   font-weight: 400;
 }
 
 .phone_number {
-  margin: 23px 0 0 0;
+  line-height: 74.94px;
   font-size: 64px;
   font-weight: 400;
+  margin: 23px 0 14px 0;
 }
 
 a {
-  margin: 14px 0 0 0;
+  line-height: 21px;
   font-size: 18px;
   font-weight: 400;
   text-decoration: none;
   color: #187CD3;
 }
 
+.custom_component {
+  margin: 48px 0;
+}
+
 .footer__contacts {
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-top: 48px;
-  margin-bottom: 72px;
-}
-
-.custom_component {
-  margin: 48px 0 0 0;
 }
 
 .btn {
@@ -107,7 +119,6 @@ a {
   background-color: #F7F7F7;
   border: 1px solid #E0E0E0;
   cursor: pointer;
-  padding: 0;
 }
 
 .vk {
@@ -135,26 +146,29 @@ a {
 }
 
 .footer__information {
-  background-color: #FFFFFF;
+  width: 100%;
+  background: #FFFFFF;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 40px 0;
 }
 
-.footer__information p {
+.footer__information span {
+  line-height: 16.31px;
   font-size: 11px;
   font-weight: 400;
   color: #828282;
-  margin: 40px 0 0 0;
+  margin-bottom: 17px;
 }
 
 .footer__information a {
+  line-height: 17.36px;
   text-decoration: none;
   font-size: 14px;
   font-weight: 400;
   color: #187CD3;
-  margin: 17px 0 40px 0;
 }
 
 </style>

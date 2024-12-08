@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Header />
-    <!--    <Banner />-->
+    <Banner />
     <Points />
     <Slider />
     <Footer />
@@ -16,12 +16,12 @@ import Footer from "./components/Footer.vue";
 import Banner from "./components/Banner.vue";
 
 export default {
-  components: {Header , Points , Slider, Footer},
+  components: {Header , Points , Slider, Footer, Banner},
 
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @font-face {
   font-family: 'Roboto';
@@ -35,9 +35,12 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
 .app {
   width: 100%;
+  max-width: 1920px;
   height: 100%;
+  margin: 0 auto;
   font-family: 'Roboto', sans-serif;
 }
 </style>
