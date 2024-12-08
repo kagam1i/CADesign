@@ -4,17 +4,18 @@
         <img class="header__logo" :src="logo" alt="Логотип сайта CADesign" />
       </a>
       <nav class="header__navigation">
-        <ul>
+        <ul class="header__list">
           <li
               v-for="(item, index) in navLink"
               :key="index"
+              class="header__list-item"
               @click="handleItemClick(item)"
               :class="{ active: activeItem === item }"
           >
             {{ item }}
           </li>
         </ul>
-        <button>
+        <button class="header__socials-button">
           Социальные сети
           <img class="header__arrow" :src="arrow" alt="arrow" />
         </button>
@@ -73,10 +74,6 @@ export default {
   z-index: 10;
 }
 
-.header__wrapper {
-  display: flex;
-  align-items: center;
-}
 
 .header__logo {
   margin-right: 190px;
@@ -89,7 +86,7 @@ export default {
   height: 100%;
 }
 
-.header__navigation ul {
+.header__list {
   font-weight: 400;
   font-size: 16px;
   line-height: 19.84px;
@@ -99,7 +96,7 @@ export default {
   height: 100%;
 }
 
-.header__navigation li {
+.header__list-item {
   cursor: pointer;
   position: relative;
   display: flex;
@@ -109,13 +106,13 @@ export default {
   height: 100%;
 }
 
-.header__navigation li:hover {
+.header__list-item:hover {
   border-bottom: 1px solid #E9862A;
   transition: color 0.3s ease;
 }
 
 
-.header__navigation button {
+.header__socials-button {
   font-family: 'Nunito Sans', sans-serif;
   background-color: white;
   border: none;
@@ -130,7 +127,7 @@ export default {
   overflow: hidden;
 }
 
-.header__navigation button:hover .header__arrow {
+.header__socials-button:hover .header__arrow {
   transform: rotate(-90deg);
   transition: transform 0.3s ease;
 }
@@ -140,7 +137,4 @@ export default {
   width: 5px;
   margin-left: 6px;
 }
-
-
-
 </style>

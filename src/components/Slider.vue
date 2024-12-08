@@ -11,22 +11,22 @@
       <div class="slider">
         <div class="slider__content">
         <button
-          class="left_arrow"
-          :class="{ left_arrow_disabled: !canGoBack }"
+          class="slider__arrow slider__arrow--left"
+          :class="{ 'slider__arrow--disabled': !canGoBack }"
           @click="goToPrevSlide"
           :disabled="!canGoBack"
         >
           <img :src="left_arrow" alt="left arrow" />
         </button>
-          <div class="slider__content__text">
-            <p>{{ slide.name }}</p>
-            <p>{{ slide.specialization }}</p>
-            <p>{{ slide.description }}</p>
+          <div class="slider__text">
+            <p class="slider__text-name">{{ slide.name }}</p>
+            <p class="slider__text-specialization">{{ slide.specialization }}</p>
+            <p class="slider__text-description">{{ slide.description }}</p>
           </div>
           <img :src="slide.image" :alt="slide.name" />
           <button
-              class="right_arrow"
-              :class="{ 'right_arrow_disabled': !canGoForward }"
+              class="slider__arrow slider__arrow--right"
+              :class="{ 'slider__arrow--disabled': !canGoForward }"
               @click="goToNextSlide"
               :disabled="!canGoForward"
           >
@@ -112,63 +112,54 @@ export default {
     background-color: #f7f7f7;
     width: 1480px;
     height: 446px;
+  }
 
-    &__img {
-      //position: absolute;
-      //top: 20px;
-      //right: 50px;
-      max-width: 541px;
-      max-height: 425px;
+
+  &__text {
+    margin-left: 58px;
+    line-height: 28px;
+
+    &-name {
+      font-size: 36px;
+      font-weight: 400;
+      color: #242627;
+      margin: 0;
     }
 
-    &__text {
-      margin-left: 58px;
+    &-specialization {
       line-height: 28px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #828282;
+      margin: 20px 0 0 0;
+    }
 
-      p:first-child {
-        font-size: 36px;
-        font-weight: 400;
-        color: #242627;
-        margin: 0;
-      }
-
-      p:nth-child(2) {
-        line-height: 28px;
-        font-size: 16px;
-        font-weight: 400;
-        color: #828282;
-        margin: 20px 0 0 0;
-      }
-
-      p:nth-child(3) {
-        font-size: 18px;
-        font-weight: 400;
-        color: #242627;
-        margin: 40px 0 0 0;
-      }
+    &-description {
+      font-size: 18px;
+      font-weight: 400;
+      color: #242627;
+      margin: 40px 0 0 0;
     }
   }
 
-  button {
-    //position: relative;
+  &__arrow {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     cursor: pointer;
     padding: 42px 23px;
-    //z-index: 2;
+
+    &--left {
+      margin-left: 40px;
+    }
+
+    &--right {
+      margin-right: 40px;
+    }
+
+    &--disabled {
+      background-color: #f7f7f7;
+    }
   }
 
-  .right_arrow {
-    margin-right: 40px;
-  }
-  .left_arrow {
-    margin-left: 40px;
-  }
-  .right_arrow_disabled {
-    background-color: #f7f7f7;
-  }
-  .left_arrow_disabled {
-    background-color: #f7f7f7;
-  }
 }
 </style>

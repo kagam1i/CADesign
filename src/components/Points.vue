@@ -2,9 +2,9 @@
   <div class="points">
     <div class="points__wrapper">
       <div class="points__item" v-for="(item, index) in points" :key="index">
-        <img class="icon" :src="item.icon" :alt="item.title" />
+        <img class="points__icon" :src="item.icon" :alt="item.title" />
         <p>{{ item.title }}</p>
-        <p class="description">{{ item?.description }}</p>
+        <p class="points__description">{{ item?.description }}</p>
       </div>
     </div>
   </div>
@@ -24,13 +24,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'Roboto';
-  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .points {
   display: flex;
   justify-content: center;
@@ -57,21 +50,18 @@ export default {
   width: 398.27px;
   background-color: #FFFFFF;
   border: 1px solid #EDEDED;
-}
-
-p {
   line-height: 24.8px;
   font-size: 20px;
   font-weight: 400;
 }
 
-.icon {
+.points__icon {
   height: 62px;
   width: 66px;
   margin-bottom: 44px;
 }
 
-.description {
+.points__description {
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
@@ -85,8 +75,5 @@ p {
   transform: translate(1px, -1px);
   box-shadow: 0px 4px 52px 0px rgba(0, 0, 0, 0.1);
 }
-
-
-
 
 </style>
