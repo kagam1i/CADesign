@@ -4,8 +4,10 @@
       <h2 class="footer__title">Отдел подбора персонала:</h2>
       <p class="footer__phone">8 800 700 8000</p>
       <a class="footer__email" href="/"> oco_rabota@mail.ru</a>
-      <my-button class="footer__button" @click="openModal">Стать частью команды</my-button>
-<!--      <my-dialog v-if="isModalOpen" :isOpen="isModalOpen" @close="closeModal"/>-->
+      <my-button class="footer__button" >Стать частью команды</my-button>
+<!--      @click="openModal"-->
+      <my-dialog :show="true"/>
+<!--      :isOpen="isModalOpen" @close="closeModal-->
       <div class="footer__contacts">
         <button class="footer__social-button"><img class="footer__social-icon--vk" :src="vk" alt=""></button>
         <button class="footer__social-button"><img class="footer__social-icon--ok" :src="ok" alt=""></button>
