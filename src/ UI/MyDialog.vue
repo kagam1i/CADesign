@@ -2,32 +2,51 @@
   <div class="modal-overlay" v-if="show">
     <div class="modal-content">
       <h2>Отклик на вакансию</h2>
-      <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors }">
+      <Form @submit="onSubmit" class="modal-form" :validation-schema="schema" v-slot="{ errors }">
         <div class="form-group">
           <Field class="input" name="job" type="text" id="job" placeholder="Желаемая вакансия *" />
-          <span class="error">{{ errors.job }}</span>
+          <ErrorMessage name="job">
+            <span class="error">{{ errors.job }}</span>
+          </ErrorMessage>
         </div>
 
         <div class="form-group">
           <Field class="input" name="name" type="text" id="name" placeholder="Фамилия, имя и отчество *" />
-          <span class="error">{{ errors.name }}</span>
+          <ErrorMessage name="name">
+            <span class="error">{{ errors.name }}</span>
+          </ErrorMessage>
         </div>
 
-        <div class="form-group form-group-two">
+        <div class="form-group">
           <Field class="input" name="phone" type="tel" id="phone"  placeholder="Мобильный телефон *"  />
+          <ErrorMessage name="phone">
+            <span class="error">{{ errors.phone }}</span>
+          </ErrorMessage>
+        </div>
+
+        <div class="form-group">
           <Field class="input" name="email" type="email" id="email" placeholder="E-mail" />
-          <span class="error">{{ errors.phone }}</span>
-          <span class="error">{{ errors.email }}</span>
+          <ErrorMessage name="email">
+            <span class="error">{{ errors.email }}</span>
+          </ErrorMessage>
         </div>
 
         <div class="form-group">
           <Field class="input" name="education" type="text" id="education" placeholder="Образование *" />
-          <span class="error">{{ errors.education }}</span>
+          <ErrorMessage name="education">
+            <span class="error">{{ errors.education }}</span>
+          </ErrorMessage>
         </div>
 
         <div class="form-group">
           <Field class="input" name="address" type="text" id="address" placeholder="Адрес места жительства *" />
-          <span class="error">{{ errors.address }}</span>
+          <ErrorMessage name="address">
+            <span class="error">{{ errors.address }}</span>
+          </ErrorMessage>
+        </div>
+
+        <div class="form-group">
+          <Field class="input input-date" name="birthDate" type="date" id="birthDate" placeholder="Дата рождения"/>
         </div>
 
         <div class="form-group">
@@ -35,15 +54,19 @@
         </div>
 
         <div class="form-group">
-          <Field class="input" name="comment" as="textarea" id="comment" placeholder="Комментарий" />
+          <Field class="input input-message" name="comment" as="textarea" id="comment" placeholder="Комментарий" />
         </div>
 
         <div class="form-group-checkbox">
-          <Field class="form-group-checkbox-input" name="agreement" type="checkbox" id="agreement" />
-          <label for="agreement">
-            Я принимаю условия <a href="#">передачи информации</a>
-          </label>
-          <span class="error">{{ errors.agreement }}</span>
+          <div class="check-wrapper">
+            <Field class="form-group-checkbox-input" name="agreement" type="checkbox" id="agreement"/>
+            <label for="agreement">
+              Я принимаю условия <a href="#">передачи информации</a>
+            </label>
+          </div>
+          <ErrorMessage name="agreement">
+            <span class="error">{{ errors.agreement }}</span>
+          </ErrorMessage>
           <button type="submit" class="submit-button">Отправить</button>
         </div>
       </Form>
@@ -55,8 +78,7 @@
 </template>
 
 <script>
-import { Form} from "vee-validate";
-import {Field} from "vee-validate";
+import {Field, Form, ErrorMessage} from "vee-validate";
 import * as yup from "yup";
 import cross from '../../src/assets/image/cross.svg'
 
@@ -64,6 +86,7 @@ export default {
   components: {
     Form,
     Field,
+    ErrorMessage
   },
   data() {
     return {
@@ -78,32 +101,35 @@ export default {
     }
   },
   emits: ["close"],
-  setup(props, { emit }) {
+  setup( _ , { emit }) {
     const closeModal = () => emit("close");
 
-  // Определяем правила валидации
-  const schema = yup.object({
-    job: yup.string().required("Желаемая вакансия обязательна"),
-    name: yup.string().required("Введите фамилию, имя и отчество через пробел"),
-    phone: yup.string().required("Телефон обязателен"),
-    email: yup.string().email("Некорректный email").optional(),
-    education: yup.string().required("Образование обязательно"),
-    address: yup.string().required("Адрес обязателен"),
-    agreement: yup.boolean().oneOf([true], "Вы должны принять условия"),
-  });
 
-  const onSubmit = (values) => {
-    console.log("Form submitted:", values);
-    alert("Форма успешно отправлена!");
-    emit("close");
-  };
-  return {
-    closeModal,
-    onSubmit,
-    schema,
-  }
-  }
+    const schema = yup.object({
+      job: yup.string().required("Желаемая вакансия обязательна"),
+      name: yup.string().required("Введите фамилию, имя и отчество через пробел"),
+      phone: yup.string().required("Телефон обязателен"),
+      email: yup.string().email("Некорректный email").optional(),
+      education: yup.string().required("Образование обязательно"),
+      address: yup.string().required("Адрес обязателен"),
+      agreement:
+          yup
+              .boolean()
+              .transform((value) => value === true)
+              .oneOf([""], "Вы должны принять условия"),
+    });
 
+    const onSubmit = (values) => {
+      console.log("Form submitted:", values);
+      alert("Форма успешно отправлена!");
+      emit("close");
+    };
+    return {
+      closeModal,
+      onSubmit,
+      schema,
+    }
+  }
 
 }
 </script>
@@ -114,22 +140,60 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
-  margin: auto;
+  margin: 0 auto;
+  padding: 170px 0 45px;
   background: #828282;
   position: fixed;
   display: flex;
   justify-content: center;
   z-index: 20;
-  }
+  overflow-y: auto;
+}
 
 .modal-content {
   background: #FFFFFF;
   box-shadow: 0 28px 62px rgba(0, 0, 0, 0.07);
-  max-height: 1205px;
+  min-height: 1250px;
   min-width: 1179px;
-  padding: 104px 180px 65px 180px;
+  padding: 104px 180px 65px;
 }
 
+.modal-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 5px;
+}
+
+.modal-form .form-group:nth-child(3),
+.modal-form .form-group:nth-child(7) {
+  grid-column: span 1;
+}
+
+.modal-form .form-group:nth-child(4),
+.modal-form .form-group:nth-child(8) {
+  grid-column: span 1;
+}
+
+.modal-form .form-group:not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(7)):not(:nth-child(8)) {
+  grid-column: span 2;
+}
+.modal-form .form-group-checkbox {
+  grid-column: span 2;
+}
+
+.input {
+  width: 100%;
+  height: 70px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #F2F2F2;
+  padding: 25px 18px 25px 28px;
+}
+
+.input-message {
+  height: 153px;
+  resize: none;
+}
 
 .modal-close {
   height: 70px;
@@ -155,31 +219,6 @@ h2 {
   color: #828282;
 }
 
-.form-group-two {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  gap: 5px;
-}
-
-.input {
-  background-color: #F2F2F2;
-  border: none;
-
-
-}
-
-input,
-textarea {
-  width: 100%;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  padding-left: 32px;
-  margin-bottom: 32px;
-  box-sizing: border-box;
-}
-
 button {
   width: 100%;
   box-sizing: border-box;
@@ -191,12 +230,13 @@ textarea {
 }
 
 .submit-button {
-  background: orange;
+  background: #E9862A;
   color: white;
   border: none;
+  width: 254px;
+  height: 64px;
   padding: 10px;
   cursor: pointer;
-  border-radius: 5px;
   transition: background 0.3s;
 }
 
@@ -213,24 +253,31 @@ textarea {
 }
 
 .form-group-checkbox {
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 140px;
+  border: 1px solid #F2F2f2;
+  padding: 58px 32px;
+}
+
+.check-wrapper {
   display: flex;
   align-items: center;
-  min-height: 140px;
-
+  gap: 21.83px;
 }
 
 .form-group-checkbox-input {
+  width: 27.57px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 27.57px;
-  height: 24px;
   padding: 9px 8px;
   margin: 0;
   cursor: pointer;
   background-color: #E9862A;
-
 }
-
 
 </style>

@@ -5,9 +5,7 @@
       <p class="footer__phone">8 800 700 8000</p>
       <a class="footer__email" href="/"> oco_rabota@mail.ru</a>
       <my-button class="footer__button" >Стать частью команды</my-button>
-<!--      @click="openModal"-->
       <my-dialog :show="true"/>
-<!--      :isOpen="isModalOpen" @close="closeModal-->
       <div class="footer__contacts">
         <button class="footer__social-button"><img class="footer__social-icon--vk" :src="vk" alt=""></button>
         <button class="footer__social-button"><img class="footer__social-icon--ok" :src="ok" alt=""></button>
@@ -39,19 +37,8 @@ export default {
       ok,
       facebook,
       instagram,
-      // isModalOpen: false,
     };
   },
-  // methods: {
-  //   openModal() {
-  //     console.log('openModal');
-  //     this.isModalOpen = true;
-  //   },
-  //   closeModal() {
-  //     console.log('closeModal');
-  //     this.isModalOpen = false;
-  //   },
-  // },
 };
 
 </script>
