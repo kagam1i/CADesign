@@ -121,15 +121,6 @@
           <ErrorMessage name="agreement">
             <span class="error">{{ errors.agreement }}</span>
           </ErrorMessage>
-          <div class="check-wrapper">
-            <Field class="form-group-checkbox-input" name="agreement" type="checkbox" id="agreement"/>
-            <label for="agreement">
-              Я принимаю условия <a href="#">передачи информации</a>
-            </label>
-          </div>
-          <ErrorMessage name="agreement">
-            <span class="error">{{ errors.agreement }}</span>
-          </ErrorMessage>
           <button type="submit" class="submit-button">Отправить</button>
         </div>
       </Form>
@@ -141,7 +132,6 @@
 </template>
 
 <script>
-import {Field, Form, ErrorMessage} from "vee-validate";
 import {Field, Form, ErrorMessage} from "vee-validate";
 import * as yup from "yup";
 import cross from '../../src/assets/image/cross.svg'
@@ -194,6 +184,7 @@ export default {
     }
   }
 
+
 }
 </script>
 
@@ -205,8 +196,6 @@ export default {
   left: 0;
   margin: 0 auto;
   padding: 170px 0 45px;
-  margin: 0 auto;
-  padding: 170px 0 45px;
   background: #828282;
   position: fixed;
   display: flex;
@@ -214,7 +203,6 @@ export default {
   z-index: 20;
   overflow-y: auto;
 }
-
 
 .modal-content {
   background: #FFFFFF;
@@ -378,11 +366,8 @@ textarea {
 
 .submit-button {
   background: #E9862A;
-  background: #E9862A;
   color: white;
   border: none;
-  width: 254px;
-  height: 64px;
   width: 254px;
   height: 64px;
   padding: 10px;
@@ -413,25 +398,12 @@ textarea {
 }
 
 .check-wrapper {
-  display:flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 140px;
-  border: 1px solid #F2F2f2;
-  padding: 58px 32px;
-}
-
-.check-wrapper {
   display: flex;
   align-items: center;
-  gap: 21.83px;
   gap: 21.83px;
 }
 
 .form-group-checkbox-input {
-  width: 27.57px;
-  height: 24px;
   width: 27.57px;
   height: 24px;
   display: flex;
@@ -444,3 +416,4 @@ textarea {
 }
 
 </style>
+
