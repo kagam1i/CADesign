@@ -16,50 +16,90 @@
         </div>
 
         <div class="form-group">
-          <Field class="input" name="name" type="text" id="name" placeholder="Фамилия, имя и отчество *" />
+          <Field class="input" name="name" type="text" id="name" autucomplete="off" required />
+          <label for="name" class="label-wrapper">
+            <span class="label-text">
+              Фамилия, имя и отчество *
+            </span>
+          </label>
           <ErrorMessage name="name">
             <span class="error">{{ errors.name }}</span>
           </ErrorMessage>
         </div>
 
         <div class="form-group">
-          <Field class="input" name="phone" type="tel" id="phone"  placeholder="Мобильный телефон *"  />
+          <Field class="input" name="phone" type="tel" id="phone"  autucomplete="off" required  />
+          <label for="phone" class="label-wrapper">
+            <span class="label-text">
+              Мобильный телефон *
+            </span>
+          </label>
           <ErrorMessage name="phone">
             <span class="error">{{ errors.phone }}</span>
           </ErrorMessage>
         </div>
 
         <div class="form-group">
-          <Field class="input" name="email" type="email" id="email" placeholder="E-mail" />
+          <Field class="input" name="email" type="email" id="email" autucomplete="off" required />
+          <label for="email" class="label-wrapper">
+            <span class="label-text">
+              E-mail
+            </span>
+          </label>
           <ErrorMessage name="email">
             <span class="error">{{ errors.email }}</span>
           </ErrorMessage>
         </div>
 
         <div class="form-group">
-          <Field class="input" name="education" type="text" id="education" placeholder="Образование *" />
+          <Field class="input" name="education" type="text" id="education" autucomplete="off" required />
+          <label for="education" class="label-wrapper">
+            <span class="label-text">
+              Образование *
+            </span>
+          </label>
           <ErrorMessage name="education">
             <span class="error">{{ errors.education }}</span>
           </ErrorMessage>
         </div>
 
         <div class="form-group">
-          <Field class="input" name="address" type="text" id="address" placeholder="Адрес места жительства *" />
+          <Field class="input" name="address" type="text" id="address" autucomplete="off" required />
+          <label for="address" class="label-wrapper">
+            <span class="label-text">
+              Адрес места жительства *
+            </span>
+          </label>
           <ErrorMessage name="address">
             <span class="error">{{ errors.address }}</span>
           </ErrorMessage>
         </div>
 
         <div class="form-group">
-          <Field class="input input-date" name="birthDate" type="date" id="birthDate" placeholder="Дата рождения"/>
+          <Field class="input input-date" name="birthDate" type="date" id="birthDate" autucomplete="off" required/>
+          <label for="birthDate" class="label-wrapper">
+            <span class="label-text">
+              Дата рождения
+            </span>
+          </label>
         </div>
 
         <div class="form-group">
-          <Field class="input" name="birthDate" type="date" id="birthDate" placeholder="Дата рождения"/>
+          <Field class="input input-date" name="birthDate" type="date" id="birthDate" autucomplete="off" required/>
+          <label for="birthDate" class="label-wrapper">
+            <span class="label-text">
+              Дата рождения
+            </span>
+          </label>
         </div>
 
         <div class="form-group">
-          <Field class="input input-message" name="comment" as="textarea" id="comment" placeholder="Комментарий" />
+          <Field class="input input-message" name="comment" as="textarea" id="comment" autucomplete="off" required />
+          <label for="comment" class="label-wrapper">
+            <span class="label-text">
+              Комментарий
+            </span>
+          </label>
         </div>
 
         <div class="form-group-checkbox">
@@ -239,17 +279,26 @@ h2 {
   color: #242627;
   outline: none;
   background-color: #F2F2F2;
-  padding-top: 35px;
+  padding: 35px 18px 25px 28px;
   border: 1px solid #E0E0E0;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-group .input:focus {
+  background-color: #FFFFFF;
 }
 
 .form-group .label-wrapper {
   position: absolute;
   height: 100%;
   width: 100%;
-  bottom: -5px;
-  left: 28px;
+  top: 0;
+  left: 0;
+  padding-left: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
   pointer-events: none;
 }
 
@@ -262,18 +311,21 @@ h2 {
 }
 
 .form-group .label-text {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.84px;
+  color: #828282; /* Серый цвет для неактивного состояния */
+  transition: all 0.3s ease; /* Плавная анимация изменения позиции и размера */
 }
 
 .form-group .input:focus + label.label-wrapper .label-text,
 .form-group .input:valid + label.label-wrapper .label-text {
-  font-size: 13px;
+  font-size: 13px; /* Уменьшение текста */
   font-weight: 400;
   line-height: 16.12px;
-  color: #828282;
-  transform: translateY(-150%);
+  color: #828282; /* Цвет лейбла при фокусе */
+  transform: translateY(calc(-100% + 5px)); /* Поднятие лейбла вверх */
+  padding-top: 10px; /* Отступ от верхней границы */
 }
 
 .form-group .input:focus + label.label-wrapper::after,
