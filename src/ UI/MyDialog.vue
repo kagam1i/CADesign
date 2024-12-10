@@ -4,7 +4,12 @@
       <h2>Отклик на вакансию</h2>
       <Form @submit="onSubmit" class="modal-form" :validation-schema="schema" v-slot="{ errors }">
         <div class="form-group">
-          <Field class="input" name="job" type="text" id="job" placeholder="Желаемая вакансия *" />
+          <Field class="input" name="job" type="text" id="job" autucomplete="off" required />
+          <label for="job" class="label-wrapper">
+            <span class="label-text">
+              Желаемая вакансия *
+            </span>
+          </label>
           <ErrorMessage name="job">
             <span class="error">{{ errors.job }}</span>
           </ErrorMessage>
@@ -217,6 +222,67 @@ h2 {
   font-weight: 400;
   line-height: 19.84px;
   color: #828282;
+  position: relative;
+  height: 70px;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.form-group .input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.84px;
+  color: #242627;
+  outline: none;
+  background-color: #F2F2F2;
+  padding-top: 35px;
+  border: 1px solid #E0E0E0;
+  box-sizing: border-box;
+}
+
+.form-group .label-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: -5px;
+  left: 28px;
+  pointer-events: none;
+}
+
+.form-group .label-wrapper::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform: translateX(-100%);
+}
+
+.form-group .label-text {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
+
+.form-group .input:focus + label.label-wrapper .label-text,
+.form-group .input:valid + label.label-wrapper .label-text {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16.12px;
+  color: #828282;
+  transform: translateY(-150%);
+}
+
+.form-group .input:focus + label.label-wrapper::after,
+.form-group .input:valid + label.label-wrapper::after {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16.12px;
+  color: #828282;
+  transform: translateX(0%);
 }
 
 button {
@@ -281,3 +347,4 @@ textarea {
 }
 
 </style>
+
