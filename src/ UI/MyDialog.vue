@@ -1,84 +1,84 @@
 <template>
-  <div class="modal-overlay" v-if="show">
-    <div class="modal-content">
-      <h2>Отклик на вакансию</h2>
-      <Form @submit="onSubmit" class="modal-form" :validation-schema="schema" v-slot="{ errors }">
-        <div class="form-group">
-          <div class="form-group-input">
-          <Field class="input" name="job" type="text" id="job" autocomplete="off" required/>
-            <label for="job" class="label-wrapper">
-              <span class="label-text">Желаемая вакансия *</span>
+  <div class="modal__overlay" v-if="show">
+    <div class="modal__content">
+      <h2 class="modal__title">Отклик на вакансию</h2>
+      <Form @submit="onSubmit" class="modal__form" :validation-schema="schema" v-slot="{ errors }">
+        <div class="form__group">
+          <div class="form__input-wrapper">
+          <Field class="form__input" name="job" type="text" id="job" autocomplete="off" required/>
+            <label for="job" class="form__label-wrapper">
+              <span class="form__label-text">Желаемая вакансия *</span>
             </label>
           </div>
           <ErrorMessage name="job">
-            <span class="error">{{ errors.job }}</span>
+            <span class="form__error">{{ errors.job }}</span>
           </ErrorMessage>
         </div>
 
-        <div class="form-group">
-          <div class="form-group-input">
-            <Field class="input" name="name" type="text" id="name" autocomplete="off" required />
-            <label for="name" class="label-wrapper">
-              <span class="label-text">Фамилия, имя и отчество *</span>
+        <div class="form__group">
+          <div class="form__input-wrapper">
+            <Field class="form__input" name="name" type="text" id="name" autocomplete="off" required />
+            <label for="name" class="form__label-wrapper">
+              <span class="form__label-text">Фамилия, имя и отчество *</span>
             </label>
           </div>
           <ErrorMessage name="name">
-            <span class="error">{{ errors.name }}</span>
+            <span class="form__error">{{ errors.name }}</span>
           </ErrorMessage>
         </div>
 
-        <div class="form-group">
-          <div class="form-group-input">
-            <Field class="input" name="phone" type="tel" id="phone"  autocomplete="off" required  />
-            <label for="phone" class="label-wrapper">
-              <span class="label-text">Мобильный телефон *</span>
+        <div class="form__group">
+          <div class="form__input-wrapper">
+            <Field class="form__input" name="phone" type="tel" id="phone"  autocomplete="off" required  />
+            <label for="phone" class="form__label-wrapper">
+              <span class="form__label-text">Мобильный телефон *</span>
             </label>
           </div>
           <ErrorMessage name="phone">
-            <span class="error">{{ errors.phone }}</span>
+            <span class="form__error">{{ errors.phone }}</span>
           </ErrorMessage>
         </div>
 
-        <div class="form-group">
-          <div class="form-group-input">
-            <Field class="input" name="email" type="email" id="email" autocomplete="off" required />
-            <label for="email" class="label-wrapper">
-              <span class="label-text">E-mail</span>
+        <div class="form__group">
+          <div class="form__input-wrapper">
+            <Field class="form__input" name="email" type="email" id="email" autocomplete="off" required />
+            <label for="email" class="form__label-wrapper">
+              <span class="form__label-text">E-mail</span>
             </label>
           </div>
           <ErrorMessage name="email">
-            <span class="error">{{ errors.email }}</span>
+            <span class="form__error">{{ errors.email }}</span>
           </ErrorMessage>
         </div>
 
-        <div class="form-group">
-          <div class="form-group-input">
-            <Field class="input" name="education" type="text" id="education" autocomplete="off" required />
-            <label for="education" class="label-wrapper">
-              <span class="label-text">Образование *</span>
+        <div class="form__group">
+          <div class="form__input-wrapper">
+            <Field class="form__input" name="education" type="text" id="education" autocomplete="off" required />
+            <label for="education" class="form__label-wrapper">
+              <span class="form__label-text">Образование *</span>
             </label>
           </div>
           <ErrorMessage name="education">
-            <span class="error">{{ errors.education }}</span>
+            <span class="form__error">{{ errors.education }}</span>
           </ErrorMessage>
         </div>
 
-        <div class="form-group">
-          <div class="form-group-input">
-            <Field class="input" name="address" type="text" id="address" autocomplete="off" required />
-            <label for="address" class="label-wrapper">
-              <span class="label-text">Адрес места жительства *</span>
+        <div class="form__group">
+          <div class="form__input-wrapper">
+            <Field class="form__input" name="address" type="text" id="address" autocomplete="off" required />
+            <label for="address" class="form__label-wrapper">
+              <span class="form__label-text">Адрес места жительства *</span>
             </label>
           </div>
           <ErrorMessage name="address">
-            <span class="error">{{ errors.address }}</span>
+            <span class="form__error">{{ errors.address }}</span>
           </ErrorMessage>
         </div>
 
-        <div class="form-group">
-          <div class="form-group-input">
+        <div class="form__group">
+          <div class="form__input-wrapper">
             <Field
-                class="input input-date"
+                class="form__input"
                 name="birthDate"
                 type="text"
                 id="birthDate"
@@ -87,46 +87,46 @@
                 onfocus="(this.type='date')"
                 onblur="if(!this.value)this.type='text'"
             />
-            <label for="birthDate" class="label-wrapper">
-              <span class="label-text">Дата рождения</span>
+            <label for="birthDate" class="form__label-wrapper">
+              <span class="form__label-text">Дата рождения</span>
             </label>
           </div>
         </div>
 
-        <div class="form-group">
-          <div class="form-group-resume">
-            <Field class="input input-file" name="resume" type="file" id="resume" accept=".pdf,.doc,.docx" required/>
-            <label for="resume" class="label-resume">
+        <div class="form__group">
+          <div class="form__resume-wrapper">
+            <Field class="form__input form__resume-input" name="resume" type="file" id="resume" accept=".pdf,.doc,.docx" required/>
+            <label for="resume" class="form__resume-label">
               <span class="label-resume">Загрузить резюме</span>
             </label>
           </div>
         </div>
 
-        <div class="form-group">
-          <div class="form-group-input">
-            <Field class="input input-message" name="comment" as="textarea" id="comment" autocomplete="off" required />
-            <label for="comment" class="label-wrapper">
-              <span class="label-text">Комментарий</span>
+        <div class="form__group">
+          <div class="form__input-wrapper">
+            <Field class="form__input" name="comment" as="textarea" id="comment" autocomplete="off" required />
+            <label for="comment" class="form__label-wrapper">
+              <span class="form__label-text">Комментарий</span>
             </label>
           </div>
         </div>
 
-        <div class="form-group-checkbox">
-          <div class="check-wrapper">
-            <Field class="form-group-checkbox-input" name="agreement" type="checkbox" id="agreement"/>
+        <div class="form__group-checkbox">
+          <div class="form__check-wrapper">
+            <Field class="form__checkbox" name="agreement" type="checkbox" id="agreement"/>
             <label for="agreement">
               Я принимаю условия <a href="#">передачи информации</a>
             </label>
           </div>
           <ErrorMessage name="agreement">
-            <span class="error">{{ errors.agreement }}</span>
+            <span class="form__error">{{ errors.agreement }}</span>
           </ErrorMessage>
-          <button type="submit" class="submit-button">Отправить</button>
+          <button type="submit" class="form__submit-button">Отправить</button>
         </div>
       </Form>
     </div>
-    <div class="modal-button">
-      <button class="modal-close" @click="closeModal"><img :src="cross" alt=""></button>
+    <div class="modal__button">
+      <button class="modal__close" @click="closeModal"><img :src="cross" alt=""></button>
     </div>
   </div>
 </template>
@@ -190,7 +190,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.modal-overlay {
+.modal__overlay {
   top: 0;
   bottom: 0;
   right: 0;
@@ -205,7 +205,7 @@ export default {
   overflow-y: auto;
 }
 
-.modal-content {
+.modal__content {
   background: #FFFFFF;
   box-shadow: 0 28px 62px rgba(0, 0, 0, 0.07);
   height: 1420px;
@@ -213,31 +213,31 @@ export default {
   padding: 104px 180px 65px;
 }
 
-.modal-form {
+.modal__form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px 5px;
 }
 
-.modal-form .form-group:nth-child(3),
-.modal-form .form-group:nth-child(7) {
+.modal__form .form__group:nth-child(3),
+.modal__form .form__group:nth-child(7) {
   grid-column: span 1;
 }
 
-.modal-form .form-group:nth-child(4),
-.modal-form .form-group:nth-child(8) {
+.modal__form .form__group:nth-child(4),
+.modal__form .form__group:nth-child(8) {
   grid-column: span 1;
 }
 
-.modal-form .form-group:not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(7)):not(:nth-child(8)) {
+.modal__form .form__group:not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(7)):not(:nth-child(8)) {
   grid-column: span 2;
 }
-.modal-form .form-group-checkbox {
+.modal__form .form__group-checkbox {
   grid-column: span 2;
 }
 
 
-.modal-close {
+.modal__close {
   height: 70px;
   width: 70px;
   background: #E9862A;
@@ -246,7 +246,7 @@ export default {
   z-index: 22;
 }
 
-h2 {
+.modal__title{
   font-size: 36px;
   font-weight: 700;
   line-height: 41.83px;
@@ -254,14 +254,14 @@ h2 {
   margin-bottom: 57px;
 }
 
-.form-group {
+.form__group {
   font-size: 16px;
   font-weight: 400;
   line-height: 19.84px;
   color: #828282;
 }
 
-.form-group-input {
+.form__input-wrapper {
   position: relative;
   color: #828282;
   height: 70px;
@@ -270,11 +270,11 @@ h2 {
 
 }
 
-.form-group .input:focus {
+.form__group .form__input:focus {
   background-color: #FFFFFF;
 }
 
-.form-group-input .input {
+.form__input-wrapper .form__input {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -292,7 +292,7 @@ h2 {
 }
 
 
-.form-group-input .label-wrapper {
+.form__input-wrapper .form__label-wrapper {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -305,7 +305,7 @@ h2 {
   pointer-events: none;
 }
 
-.form-group-input .label-wrapper::after {
+.form__input-wrapper .form__label-wrapper::after {
   content: "";
   position: absolute;
   height: 100%;
@@ -313,7 +313,7 @@ h2 {
   transform: translateX(-100%);
 }
 
-.form-group-input .label-text {
+.form__input-wrapper .form__label-text {
   font-size: 16px;
   font-weight: 400;
   line-height: 19.84px;
@@ -321,8 +321,8 @@ h2 {
   transition: all 0.3s ease;
 }
 
-.form-group-input .input:focus + label.label-wrapper .label-text,
-.form-group-input .input:valid + label.label-wrapper .label-text {
+.form__input-wrapper .form__input:focus + label.form__label-wrapper .form__label-text,
+.form__input-wrapper .form__input:valid + label.form__label-wrapper .form__label-text {
   font-size: 13px;
   font-weight: 400;
   line-height: 16.12px;
@@ -331,8 +331,8 @@ h2 {
   padding-top: 10px;
 }
 
-.form-group-input .input:focus + label.label-wrapper::after,
-.form-group-input .input:valid + label.label-wrapper::after {
+.form__input-wrapper .form__input:focus + label.form__label-wrapper::after,
+.form__input-wrapper .form__input:valid + label.form__label-wrapper::after {
   font-size: 13px;
   font-weight: 400;
   line-height: 16.12px;
@@ -340,12 +340,12 @@ h2 {
   transform: translateX(0%);
 }
 
-.form-group-resume {
+.form__resume-wrapper {
   position: relative;
   border-bottom: 1px solid #242627;
 }
 
-.input-file {
+.form__resume-input {
   opacity: 0;
   position: absolute;
   width: 100%;
@@ -354,7 +354,7 @@ h2 {
   cursor: pointer;
 }
 
-.label-resume {
+.form__resume-label {
   position: relative;
   display: flex;
   align-items: center;
@@ -368,7 +368,7 @@ h2 {
   line-height: 18.6px;
 }
 
-.submit-button {
+.form__submit-button {
   background: #E9862A;
   color: white;
   font-size: 16px;
@@ -382,19 +382,19 @@ h2 {
   transition: background 0.3s;
 }
 
-.submit-button:disabled {
+.form__submit-button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
 
 
-.error {
+.form__error {
   font-weight: 400;
   color: #BE1A1A;
   font-size: 11px;
 }
 
-.form-group-checkbox {
+.form__group-checkbox {
   display:flex;
   flex-wrap: wrap;
   align-items: center;
@@ -404,13 +404,13 @@ h2 {
   padding: 58px 32px;
 }
 
-.check-wrapper {
+.form__check-wrapper {
   display: flex;
   align-items: center;
   gap: 21.83px;
 }
 
-.form-group-checkbox-input {
+.form__checkbox {
   width: 27.57px;
   height: 24px;
   display: flex;
