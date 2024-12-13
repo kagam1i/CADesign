@@ -1,16 +1,21 @@
 <template>
   <div class="banner">
     <my-dialog :show="isModalVisible" @close="closeModal"/>
-    <div class="banner__background"></div>
-    <div class="banner__content">
-      <h1>Энергия твоего роста! – заряжаем твою карьеру</h1>
-      <my-button @click="openModal">Стать частью команды</my-button>
+    <div class="banner__background_photo">
+      <img :src=building alt="Задний фон баннера">
     </div>
-      <div class="banner__images">
-        <img class="img_building" :src="building" alt="">
+    <div class="banner__content">
+      <div class="banner__content__wrapper">
+        <h1 class="banner__title">Энергия твоего роста! – заряжаем твою карьеру</h1>
+        <my-button class="banner__button" @click="openModal">Стать частью команды</my-button>
       </div>
+    </div>
+    <div class="banner__people">
+      <img :src=people alt="Сотрудники компании CADesign">
+    </div>
   </div>
 </template>
+
 
 <script>
 import MyButton from "../ UI/MyButton.vue";
@@ -42,71 +47,61 @@ export default {
 
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'Roboto';
-  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .banner {
-  font-family: 'Roboto', sans-serif;
   position: relative;
   width: 100%;
   height: 400px;
   overflow: hidden
 }
 
-.banner__background {
+.banner__content {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #003264;
+  width: 1300px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1200px;
-  height: 100%;
+  background-color: #003264;
   clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0% 100%);
-
 }
 
-.banner__content {
+.banner__background_photo {
   position: absolute;
-  max-width: 500px;
-  top: 50%;
-  left: 15%;
-  transform: translateY(-50%);
-  color: #fff;
-  z-index: 2;
-}
-
-h1 {
-  color: #FFFFFF;
-  line-height: 42px;
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 59px;
-}
-
-.banner__images {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-}
-
-.img_people {
-  width: 678px;
-  height: 430px
-}
-
-.img_building {
-  position: absolute;
-  top: 0;
-  right: 0;
+  top: -39px;
+  left: 875px;
   width: 1072px;
   height: 715px;
+  background-color: aliceblue;
 }
 
+.banner__title {
+  max-width: 592px;
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 41.83px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.banner__button {
+  margin-top: 59px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.59px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.banner__people {
+  position: absolute;
+  top: 0;
+  left: 965px;
+  width: 678px;
+  height: 430px;
+}
 </style>
