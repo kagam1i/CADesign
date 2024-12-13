@@ -1,12 +1,12 @@
 <template>
   <div class="banner">
+    <my-dialog :show="isModalVisible" @close="closeModal"/>
     <div class="banner__background"></div>
     <div class="banner__content">
       <h1>Энергия твоего роста! – заряжаем твою карьеру</h1>
-      <my-button>Стать частью команды</my-button>
+      <my-button @click="openModal">Стать частью команды</my-button>
     </div>
       <div class="banner__images">
-<!--        <img class="img_people" :src="people" alt="">-->
         <img class="img_building" :src="building" alt="">
       </div>
   </div>
@@ -16,16 +16,26 @@
 import MyButton from "../ UI/MyButton.vue";
 import people from '../assets/image/people.svg'
 import building from '../assets/image/building.svg'
+import MyDialog from "../ UI/MyDialog.vue";
 
 export default {
-  components: {MyButton},
+  components: {MyButton, MyDialog},
   data() {
     return {
       people,
       building,
+      isModalVisible: false,
 
     }
-  }
+  },
+  methods: {
+    openModal () {
+      this.isModalVisible = true;
+    },
+    closeModal () {
+      this.isModalVisible = false;
+    }
+  },
 
 };
 </script>

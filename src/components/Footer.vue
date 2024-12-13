@@ -4,8 +4,8 @@
       <h2 class="footer__title">Отдел подбора персонала:</h2>
       <p class="footer__phone">8 800 700 8000</p>
       <a class="footer__email" href="/"> oco_rabota@mail.ru</a>
-      <my-button class="footer__button" >Стать частью команды</my-button>
-      <my-dialog :show="true"/>
+      <my-button @click="openModal" class="footer__button" >Стать частью команды</my-button>
+      <my-dialog :show="isModalVisible" @close="closeModal"/>
       <div class="footer__contacts">
         <button class="footer__social-button"><img class="footer__social-icon--vk" :src="vk" alt=""></button>
         <button class="footer__social-button"><img class="footer__social-icon--ok" :src="ok" alt=""></button>
@@ -37,7 +37,16 @@ export default {
       ok,
       facebook,
       instagram,
+      isModalVisible: false,
     };
+  },
+  methods: {
+    openModal () {
+      this.isModalVisible = true;
+    },
+    closeModal () {
+      this.isModalVisible = false;
+    }
   },
 };
 

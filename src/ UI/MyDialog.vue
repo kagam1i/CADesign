@@ -94,10 +94,10 @@
         </div>
 
         <div class="form-group">
-          <div class="form-group-input">
-            <Field class="input input-date" name="birthDate" type="date" id="birthDate" autocomplete="off" required/>
-            <label for="birthDate" class="label-wrapper">
-              <span class="label-text">Дата рождения</span>
+          <div class="form-group-resume">
+            <Field class="input input-file" name="resume" type="file" id="resume" accept=".pdf,.doc,.docx" required/>
+            <label for="resume" class="label-resume">
+              <span class="label-resume">Загрузить резюме</span>
             </label>
           </div>
         </div>
@@ -157,7 +157,8 @@ export default {
   emits: ["close"],
   setup( _ , { emit }) {
     const closeModal = () => emit("close");
-    // Определяем правила валидации
+
+
     const schema = yup.object({
       job: yup.string().required("Желаемая вакансия обязательна"),
       name: yup.string().required("Введите фамилию, имя и отчество через пробел"),
@@ -235,20 +236,6 @@ export default {
   grid-column: span 2;
 }
 
-//.input {
-//  width: 100%;
-//  height: 70px;
-//  box-sizing: border-box;
-//  border: none;
-//  background-color: #F2F2F2;
-//  padding: 25px 18px 25px 28px;
-//}
-
-
-.input-message {
-  height: 153px;
-
-}
 
 .modal-close {
   height: 70px;
@@ -353,20 +340,40 @@ h2 {
   transform: translateX(0%);
 }
 
-
-button {
-  width: 100%;
-  box-sizing: border-box;
-
+.form-group-resume {
+  position: relative;
+  border-bottom: 1px solid #242627;
 }
 
-textarea {
-  height: 80px;
+.input-file {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.label-resume {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 69px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  color: #187CD3;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18.6px;
 }
 
 .submit-button {
   background: #E9862A;
   color: white;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.59px;
   border: none;
   width: 254px;
   height: 64px;
