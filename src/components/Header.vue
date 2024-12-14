@@ -26,7 +26,7 @@
 <script>
 import logo from '../assets/image/Frame.svg';
 import arrow from '../assets/image/arrow.svg';
-import { navLink } from "../Data/data.js";
+import { navLink } from "../data/data.js";
 
 export default {
   data() {

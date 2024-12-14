@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import {points} from '../Data/data.js'
+import {points} from '../data/data.js'
 
 
 export default {

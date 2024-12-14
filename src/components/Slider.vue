@@ -43,7 +43,7 @@ import left_arrow from "../assets/image/left_arrow.svg";
 import right_arrow from "../assets/image/right_arrow.svg";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
-import { slides } from "../Data/data.js";
+import { slides } from "../data/data.js";
 import { ref } from "vue";
 
 export default {
