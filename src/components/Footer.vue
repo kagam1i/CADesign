@@ -166,4 +166,75 @@ export default {
     }
 }
 
+@media (max-width: 1000px) {
+  .footer {
+    margin-top: 64px;
+  }
+
+  .footer__wrapper {
+    margin: 64px 0;
+  }
+
+  .footer__phone {
+    line-height: 69.44px;
+    font-size: 56px;
+    font-weight: 400;
+    margin: 19px 0 22px 0;
+  }
+
+
+
+  .footer__social-button{
+    width: 48px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer {
+    margin-top: 36px;
+  }
+
+  .footer__wrapper {
+    margin: 36px 0;
+  }
+
+  .footer__title {
+    line-height: 17.36px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .footer__phone {
+    line-height: 37.2px;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 15px 0;
+  }
+
+  .footer__email {
+    line-height: 18.73px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .footer__button{
+    margin: 30px 0;
+  }
+
+  .footer__contacts {
+    gap: 11px;
+  }
+
+  .footer__information{
+    padding: 20px 0;
+  }
+
+  .footer__policy{
+    line-height: 13.64px;
+    font-size: 11px;
+    font-weight: 400;
+  }
+}
+
 </style>
