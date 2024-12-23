@@ -7,6 +7,10 @@ import point3 from "../assets/image/point3.svg";
 import point4 from "../assets/image/point4.svg";
 import point5 from "../assets/image/point5.svg";
 import point6 from "../assets/image/point6.svg";
+import vk from "../assets/image/vk.svg";
+import ok from "../assets/image/ok.svg";
+import facebook from "../assets/image/facebook.svg";
+import instagram from "../assets/image/instagram.svg";
 
 export const navLink = [
     'О нас',
@@ -47,4 +51,11 @@ export const points = [
     { title: "Динамика", icon: point4, description: 'Общего центра обслуживания. Современные технологии, проекты, рабочие группы'},
     { title: "Комфорт", icon: point5},
     { title: "Надежность", icon: point6},
+]
+
+export const dropdownItems = [
+    {icon: vk, link: "/"},
+    {icon: ok, link: "/"},
+    {icon: facebook, link: "/"},
+    {icon: instagram, link: "/"}
 ]
