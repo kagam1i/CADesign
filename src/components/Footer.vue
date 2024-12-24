@@ -182,6 +182,14 @@ export default {
     margin: 19px 0 22px 0;
   }
 
+  .footer__button{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18.59px;
+    height: 64px;
+    width: 261px;
+    padding: 23px 36px;
+  }
 
 
   .footer__social-button{
@@ -234,6 +242,15 @@ export default {
     line-height: 13.64px;
     font-size: 11px;
     font-weight: 400;
+  }
+
+  .footer__button{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.27px;
+    height: 56px;
+    width: 223px;
+    padding: 19px 29px;
   }
 }
 
