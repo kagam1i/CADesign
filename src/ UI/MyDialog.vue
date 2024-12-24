@@ -114,7 +114,7 @@
         <div class="form__group-checkbox">
           <div class="form__check-wrapper">
             <Field class="form__checkbox" name="agreement" type="checkbox" id="agreement"/>
-            <label for="agreement">
+            <label class="form__checkbox-agreement" for="agreement">
               Я принимаю условия <a href="#">передачи информации</a>
             </label>
           </div>
@@ -209,7 +209,9 @@ export default {
   background: #FFFFFF;
   box-shadow: 0 28px 62px rgba(0, 0, 0, 0.07);
   height: 1420px;
-  min-width: 1179px;
+  //min-width: 1179px;
+  width: 1179px;
+
   padding: 104px 180px 65px;
 }
 
@@ -420,6 +422,166 @@ export default {
   margin: 0;
   cursor: pointer;
   background-color: #E9862A;
+}
+
+@media (max-width: 1150px) {
+  .modal__overlay{
+    padding: 107px 0 84px;
+    background: #4F4F4F;
+  }
+
+  .modal__content{
+    position: relative;
+    width: 768px;
+    padding: 128px 40px 77px;
+  }
+
+  .modal__button{
+    position: absolute;
+    top: 144px;
+    right: 200px;
+  }
+
+  .modal__close{
+    height: 64px;
+    width: 64px;
+  }
+
+  .modal__title{
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 37.18px;
+    margin-bottom: 53px;
+  }
+
+  .form__group-checkbox {
+    padding: 38px 32px;
+  }
+
+  .form__check-wrapper {
+    gap: 18.36px;
+  }
+
+  .form__submit-button {
+    width: 203px;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .modal__overlay{
+    padding: 0 0 580px;
+    background: #292929E8;
+  }
+
+  .modal__content{
+    position: relative;
+    width: 320px;
+    padding: 80px 20px 42px;
+  }
+
+  .modal__button{
+    position: absolute;
+    top: 20px;
+    right: 160px;
+  }
+
+  .modal__close{
+    height: 36px;
+    width: 36px;
+  }
+
+  .modal__title{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20.92px;
+    margin-bottom: 38px;
+  }
+
+  .form__input-wrapper .form__label-text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.88px;
+  }
+
+  .form__input-wrapper .form__input:focus + label.form__label-wrapper .form__label-text,
+  .form__input-wrapper .form__input:valid + label.form__label-wrapper .form__label-text {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+  }
+
+  .form__input-wrapper .form__input {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.88px;
+    padding: 25px 8px 15px 18px;
+  }
+
+  .form__input-wrapper{
+    height: 50px;
+  }
+
+  .form__input-wrapper .form__label-wrapper{
+    padding-left: 11px;
+  }
+
+  .form__error{
+    font-size: 10px;
+  }
+
+  .modal__form {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+
+  .modal__form .form__group:not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(7)):not(:nth-child(8)) {
+    grid-column: span 1;
+  }
+  .modal__form .form__group-checkbox {
+    grid-column: span 1;
+  }
+
+  .form__resume-label {
+    height: 49px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.88px;
+  }
+
+  .form__group-checkbox {
+    justify-content: center;
+    border: none;
+    padding: 7px 0;
+
+  }
+
+  .form__check-wrapper{
+    gap: 11px;
+  }
+
+  .form__checkbox-agreement{
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13.64px;
+  }
+
+  .form__submit-button {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.27px;
+    width: 280px;
+    height: 56px;
+  }
+
+  .form__checkbox {
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 </style>
