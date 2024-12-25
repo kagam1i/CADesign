@@ -1,8 +1,8 @@
 <template>
   <div class="banner">
     <my-dialog :show="isModalVisible" @close="closeModal"/>
-    <div class="banner__background_photo">
-      <img :src=building alt="Задний фон баннера">
+    <div class="banner__background">
+      <img :src=building class="banner__background-img" alt="Задний фон баннера">
     </div>
     <div class="banner__content">
       <div class="banner__content__wrapper">
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="banner__people">
-      <img :src=people alt="Сотрудники компании CADesign">
+      <img :src=people class="banner__people-img" alt="Сотрудники компании CADesign">
     </div>
   </div>
 </template>
@@ -58,7 +58,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1300px;
+  width: 67%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -67,12 +67,9 @@ export default {
   clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0% 100%);
 }
 
-.banner__background_photo {
+.banner__background {
   position: absolute;
-  top: -39px;
-  left: 875px;
-  width: 1072px;
-  height: 715px;
+  right: 0;
   background-color: aliceblue;
 }
 
@@ -98,15 +95,43 @@ export default {
 }
 
 .banner__people {
-  position: absolute;
-  top: 0;
-  left: 965px;
-  width: 678px;
-  height: 430px;
+  height: 100%;
+  position: relative;
+  left: 50%;
+}
+
+@media screen and (max-width: 1250px) {
+  .banner__content__wrapper{
+    max-width: 450px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .banner__content {
+    width: 75%;
+  }
+
+  .banner__people {
+    display: flex;
+    align-items: flex-end;
+  }
+  .banner__people-img {
+    height: 334px;
+    width: 527px;
+  }
+  .banner__background {
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/image/laptopBasckgroundBanner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+  }
+  .banner__background-img {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
-
   .banner__content {
     justify-content: flex-start;
     width: 635px;
@@ -115,8 +140,7 @@ export default {
   }
 
   .banner__content__wrapper{
-    margin-left: 50px;
-
+    margin: 0 0 75px 50px;
   }
 
   .banner__title {
@@ -132,50 +156,29 @@ export default {
     margin-top: 51px;
     padding: 23px 33px;
   }
-
-  .banner__background_photo {
-    width: 696px;
-    height: 412px;
-    top: 0;
-    left: 115px;
-  }
-
-  .banner__background_photo img {
-    width: 696px;
-    height: 600px;
-  }
-
   .banner__people {
-    top: 70px;
-    left: 420px;
+    left: 275px;
   }
-
-  .banner__people img {
-    width: 527px;
-    height: 334px;
-  }
-
 }
-
-@media (max-width: 337px) {
-  .banner {
-    height: 318px;
-  }
-
+@media screen and (max-width: 678px) {
   .banner__content {
-    justify-content: center;
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
     clip-path: none;
+    justify-content: center;
   }
-
+  .banner__content__wrapper {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .banner__title {
-    max-width: 281px;
-    font-size: 22px;
+    text-align: center;
+    max-width: 400px;
+    font-size: 28px;
     font-weight: 700;
-    line-height: 25.56px;
+    line-height: 35.56px;
   }
 
   .banner__button {
@@ -189,23 +192,17 @@ export default {
     line-height: 16.27px;
     z-index: 6;
   }
-
-  .banner__background_photo img{
-    display: none;
+  .banner__people{
+    position: static;
+    display: flex;
+    justify-content: center;
   }
-
-  .banner__background_photo {
-    display: none;
-  }
-
-  .banner__people {
-    top: 100px;
-    left: 25px;
-  }
-
-  .banner__people img {
-    width: 336px;
-    height: 230px;
+  .banner__people-img {
+    position:  relative;
+    bottom: -25px;
+    margin-left: 60px;
+    width: 410px;
+    height: 280px;
   }
 }
 </style>

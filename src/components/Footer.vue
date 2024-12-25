@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="footer__information">
-      <span  class="footer__copyright">© 1998–2019,«Компания», 53002, Иваново, Лежневская 34 корпус 1</span>
+      <span class="footer__copyright">© 1998–2019,«Компания», 53002, Иваново, Лежневская 34 корпус 1</span>
       <a class="footer__policy" href="#">Политика обработки персональных данных</a>
     </div>
   </div>
@@ -150,6 +150,7 @@ export default {
   }
 
     &__copyright {
+      text-align: center;
       line-height: 16.31px;
       font-size: 11px;
       font-weight: 400;
