@@ -191,14 +191,15 @@ export default {
 
 <style lang="scss" scoped>
 .modal__overlay {
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  align-items: flex-start;
   margin: 0 auto;
-  padding: 170px 0 45px;
+  padding: 170px 0;
   background: #828282;
-  position: fixed;
   display: flex;
   justify-content: center;
   z-index: 20;
@@ -208,8 +209,6 @@ export default {
 .modal__content {
   background: #FFFFFF;
   box-shadow: 0 28px 62px rgba(0, 0, 0, 0.07);
-  height: 1420px;
-  //min-width: 1179px;
   width: 1179px;
 
   padding: 104px 180px 65px;
@@ -437,9 +436,9 @@ export default {
   }
 
   .modal__button{
-    position: absolute;
-    top: 144px;
-    right: 200px;
+    position: relative;
+    top: 40px;
+    right: 104px;
   }
 
   .modal__close{
@@ -469,7 +468,6 @@ export default {
 }
 
 @media (max-width: 650px) {
-
   .modal__overlay{
     padding: 0 0 580px;
     background: #292929E8;
@@ -482,9 +480,9 @@ export default {
   }
 
   .modal__button{
-    position: absolute;
+    position: relative;
     top: 20px;
-    right: 160px;
+    right: 56px;
   }
 
   .modal__close{
