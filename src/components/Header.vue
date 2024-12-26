@@ -94,7 +94,6 @@ export default {
 
     handleClickOutside(event) {
       const dropdown = this.$el
-      console.log(dropdown);
       if (!dropdown.contains(event.target)) {
         this.isOpenTooltip = false
       }
