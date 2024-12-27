@@ -49,7 +49,6 @@ export default {
           slidesPerView: 3,
           slidesPerGroup: 3,
         },
-
       },
     };
   },
@@ -94,7 +93,8 @@ export default {
     margin: 0 40px;
   }
 
-  @media screen and (max-width: 784px) {
+  @media screen and (max-width: 440px) {
+    margin: 0 20px;
 
   }
 }
@@ -104,8 +104,6 @@ export default {
   margin-top: 76px;
   max-width: 1180px;
   max-height: 755px;
-
-
 }
 
 .points__item {
@@ -128,10 +126,10 @@ export default {
     width: 344px;
   }
 
-  //@media screen and (max-width: 1040px){
-  //  height: 344px;
-  //  width: 344px;
-  //}
+  @media screen and (max-width: 540px){
+    line-height: 21.08px;
+    font-size: 18px;
+  }
 }
 
 .points__icon {
@@ -144,6 +142,10 @@ export default {
     width: 57px;
   }
 
+  @media screen and (max-width: 440px){
+    height: 92px;
+    width: 57px;
+  }
 }
 
 .points__description {
