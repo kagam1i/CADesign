@@ -1,6 +1,5 @@
 <template>
   <div class="points">
-
     <swiper
         :space-between="0"
         :modules="[Pagination]"
@@ -75,9 +74,11 @@ export default {
   display: none;
 
   @media screen and (max-width: 1200px) {
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
+    z-index: 10;
+
   }
 }
 
@@ -153,11 +154,4 @@ export default {
   margin-top: 23px;
   max-width: 297px;
 }
-
-.points__wrapper > *:nth-child(4) {
-  z-index: 2;
-  transform: translate(1px, -1px);
-  box-shadow: 0 4px 52px 0 rgba(0, 0, 0, 0.1);
-}
-
 </style>
